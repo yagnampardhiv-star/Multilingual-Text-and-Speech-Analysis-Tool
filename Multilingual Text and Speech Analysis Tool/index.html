@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LinguaSense - Multilingual Text & Speech Analyzer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-icon">L</div>
+            <div>
+                <h2>LinguaSense</h2>
+                <span>AI Language Analytics</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#analyzer">Analyzer</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <button class="nav-button" onclick="scrollToAnalyzer()">
+            Start Analysis
+        </button>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                <span class="pulse"></span>
+                MULTILINGUAL AI ANALYSIS
+            </div>
+
+            <h1>
+                Understand Every
+                <span>Word & Voice.</span>
+            </h1>
+
+            <p>
+                Analyze multilingual text and speech with a smart,
+                interactive language analysis platform designed for
+                sentiment, keywords and content insights.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="scrollToAnalyzer()">
+                    Analyze Content →
+                </button>
+
+                <button class="secondary-btn" onclick="startSpeech()">
+                    🎤 Try Voice Analysis
+                </button>
+            </div>
+
+            <div class="hero-stats">
+                <div>
+                    <strong>10+</strong>
+                    <span>Languages</span>
+                </div>
+
+                <div>
+                    <strong>4</strong>
+                    <span>Analysis Tools</span>
+                </div>
+
+                <div>
+                    <strong>100%</strong>
+                    <span>Browser Based</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="floating-card card-top">
+                <span>🌐</span>
+                <div>
+                    <strong>Multilingual</strong>
+                    <small>Language Support</small>
+                </div>
+            </div>
+
+            <div class="brain-circle">
+                <div class="brain-icon">🧠</div>
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+            </div>
+
+            <div class="floating-card card-bottom">
+                <span>📊</span>
+                <div>
+                    <strong>Smart Insights</strong>
+                    <small>Real-time Analysis</small>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Analyzer -->
+    <section class="analyzer-section" id="analyzer">
+
+        <div class="section-heading">
+
+            <div class="mini-label">
+                ANALYSIS WORKSPACE
+            </div>
+
+            <h2>
+                Multilingual
+                <span>Content Analyzer</span>
+            </h2>
+
+            <p>
+                Enter text or use your microphone to analyze language,
+                sentiment, keywords and content statistics.
+            </p>
+
+        </div>
+
+
+        <div class="analyzer-container">
+
+            <!-- Input Panel -->
+            <div class="input-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Input Content</h3>
+                        <p>Enter text or record your voice</p>
+                    </div>
+
+                    <div class="language-box">
+
+                        <label for="language">
+                            Language
+                        </label>
+
+                        <select id="language">
+                            <option value="auto">Auto Detect</option>
+                            <option value="en">English</option>
+                            <option value="te">Telugu</option>
+                            <option value="hi">Hindi</option>
+                            <option value="ta">Tamil</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="es">Spanish</option>
+                            <option value="ja">Japanese</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="textarea-wrapper">
+
+                    <textarea
+                        id="textInput"
+                        placeholder="Type or paste your text here...
+
+Example:
+I really enjoyed this product. The service was excellent and the experience was amazing!"
+                    ></textarea>
+
+                    <div class="textarea-footer">
+
+                        <span id="charCount">
+                            0 characters
+                        </span>
+
+                        <span id="wordCount">
+                            0 words
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-actions">
+
+                    <button
+                        class="voice-btn"
+                        onclick="startSpeech()"
+                        id="voiceButton"
+                    >
+                        <span>🎤</span>
+                        Speak
+                    </button>
+
+                    <button
+                        class="clear-btn"
+                        onclick="clearText()"
+                    >
+                        Clear
+                    </button>
+
+                    <button
+                        class="analyze-btn"
+                        onclick="analyzeText()"
+                    >
+                        Analyze Text →
+                    </button>
+
+                </div>
+
+                <div class="speech-status" id="speechStatus">
+                    <span class="status-dot"></span>
+                    Ready for voice input
+                </div>
+
+            </div>
+
+
+            <!-- Results Panel -->
+            <div class="results-panel">
+
+                <div class="results-header">
+                    <div>
+                        <h3>Analysis Results</h3>
+                        <p>Insights from your content</p>
+                    </div>
+
+                    <div class="live-badge">
+                        ● LIVE
+                    </div>
+                </div>
+
+
+                <!-- Sentiment -->
+                <div class="sentiment-card">
+
+                    <div class="result-icon positive">
+                        😊
+                    </div>
+
+                    <div class="result-info">
+
+                        <span>Overall Sentiment</span>
+
+                        <h2 id="sentimentResult">
+                            Waiting...
+                        </h2>
+
+                        <div class="progress">
+                            <div
+                                class="progress-bar"
+                                id="sentimentBar"
+                            ></div>
+                        </div>
+
+                    </div>
+
+                    <strong id="sentimentScore">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <!-- Statistics -->
+                <div class="statistics-grid">
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🌐</div>
+                        <span>Language</span>
+                        <strong id="languageResult">
+                            --
+                        </strong>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📝</div>
+                        <span>Words</span>
+                        <strong id="wordsResult">
+                            0
+                        </strong>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🔤</div>
+                        <span>Characters</span>
+                        <strong id="charactersResult">
+                            0
+                        </strong>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📄</div>
+                        <span>Sentences</span>
+                        <strong id="sentencesResult">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Keywords -->
+                <div class="keywords-card">
+
+                    <div class="keywords-heading">
+                        <div>
+                            <h3>Important Keywords</h3>
+                            <p>Frequently detected terms</p>
+                        </div>
+
+                        <span>🔑</span>
+                    </div>
+
+                    <div
+                        class="keywords-list"
+                        id="keywordsList"
+                    >
+                        <span class="keyword-placeholder">
+                            Analyze text to discover keywords
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <!-- Analysis Message -->
+                <div class="insight-box">
+
+                    <div class="insight-icon">
+                        💡
+                    </div>
+
+                    <div>
+                        <strong>AI Insight</strong>
+
+                        <p id="insightText">
+                            Enter content and click "Analyze Text"
+                            to generate insights.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="features-section" id="features">
+
+        <div class="section-heading">
+
+            <div class="mini-label">
+                POWERFUL FEATURES
+            </div>
+
+            <h2>
+                One Platform.
+                <span>Multiple Insights.</span>
+            </h2>
+
+            <p>
+                Explore text and speech with a simple and modern
+                multilingual analysis experience.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    01
+                </div>
+
+                <div class="feature-icon">
+                    🌍
+                </div>
+
+                <h3>Multilingual Support</h3>
+
+                <p>
+                    Analyze content written in multiple languages
+                    including English, Telugu, Hindi, Tamil,
+                    French, German and more.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    02
+                </div>
+
+                <div class="feature-icon">
+                    🎤
+                </div>
+
+                <h3>Speech Analysis</h3>
+
+                <p>
+                    Convert spoken words into text using your
+                    browser microphone and analyze the generated
+                    content instantly.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    03
+                </div>
+
+                <div class="feature-icon">
+                    😊
+                </div>
+
+                <h3>Sentiment Detection</h3>
+
+                <p>
+                    Identify whether the entered content expresses
+                    positive, negative or neutral sentiment.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    04
+                </div>
+
+                <div class="feature-icon">
+                    🔑
+                </div>
+
+                <h3>Keyword Extraction</h3>
+
+                <p>
+                    Find important and frequently used words from
+                    your content to understand its main topics.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about-section" id="about">
+
+        <div class="about-content">
+
+            <div class="mini-label">
+                ABOUT THE PROJECT
+            </div>
+
+            <h2>
+                Making Language
+                <span>Easy to Understand.</span>
+            </h2>
+
+            <p>
+                Multilingual Text and Speech Analysis Tool is a
+                web-based application designed to process textual
+                and spoken content. The system provides useful
+                insights such as language selection, sentiment,
+                keywords and basic content statistics.
+            </p>
+
+            <p>
+                The project combines HTML, CSS and JavaScript with
+                browser speech recognition technology to create an
+                interactive language analysis platform.
+            </p>
+
+            <div class="tech-stack">
+
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Web Speech API</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-visual">
+
+            <div class="data-card">
+
+                <div class="data-card-header">
+                    <span>Language Intelligence</span>
+                    <span>✦</span>
+                </div>
+
+                <div class="fake-chart">
+
+                    <div class="chart-line line-one"></div>
+                    <div class="chart-line line-two"></div>
+                    <div class="chart-line line-three"></div>
+                    <div class="chart-line line-four"></div>
+
+                </div>
+
+                <div class="chart-labels">
+                    <span>Text</span>
+                    <span>Voice</span>
+                    <span>Emotion</span>
+                    <span>Keywords</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-logo">
+            <div class="logo-icon">L</div>
+
+            <div>
+                <strong>LinguaSense</strong>
+                <span>Multilingual Language Analytics</span>
+            </div>
+        </div>
+
+        <p>
+            © 2026 LinguaSense. Multilingual Text & Speech Analysis Tool.
+        </p>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#analyzer">Analyzer</a>
+            <a href="#features">Features</a>
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
